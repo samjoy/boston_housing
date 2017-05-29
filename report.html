@@ -12094,7 +12094,7 @@ Standard deviation of prices: $165,171.13
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: 0.923 (Though the r2_score is high, we have only used 5 data points. Hence it is too early to make a significant concluson on the given model)</strong></p>
+<p><strong>Answer:</strong> 0.923. This implies that the 92.3% of the target variable can be explained by its features. In other words, the model predicts the target variable pretty well.</p>
 
 </div>
 </div>
@@ -13779,7 +13779,7 @@ esYYYwKGJT1jjDEBw5KeMcaYgGFJzxhjTMCwpGeMMSZg/D9lMK40sqcVlAAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> In the grid search technique, a grid of parameters is defined over the model. With every set of parameters, a model is trained. Then using validation, the set of parameters that best optimizes the model is selected.</p>
+<p><strong>Answer: </strong> The grid search technique tries different hyperparameters to obtain an optimal model. A grid search space(set of hyperparameters) is defined. Then, every hyerparameter combination is exhaustively tried out to obtain different models. With the help of cross validation, the model with the best performance score is selected as the most optimal model.</p>
 
 </div>
 </div>
@@ -13804,14 +13804,18 @@ esYYYwKGJT1jjDEBw5KeMcaYgGFJzxhjTMCwpGeMMSZg/D9lMK40sqcVlAAAAABJRU5ErkJggg==
 <ul>
 <li><p>In k-fold cross-validation, the following occurs:-</p>
 <ul>
-<li>The dataset is split into K-sets of equal size.</li>
-<li>K iterations are run in which each set acts as the testing set once and the training set K-1 times.</li>
-<li>The cross-validation performance is calculated out over these iterations. This is used to indicate the model's performance.<br/><br/></li>
+<li>The training dataset is split into K-sets of equal size.</li>
+<li>Then the following is done on each of the 'k-folds':<ul>
+<li>The model is trained using the k-1 sets as training data</li>
+<li>The resulting model is then validated on the remaining part of the data, using an appropriate performance metric.</li>
+</ul>
+</li>
+<li>The performance measure of the model calculated is taken as the average of the values computed in the loop.</li>
 </ul>
 </li>
 <li><p>Benefits of k-fold cross validation for grid search</p>
 <ul>
-<li>Running grid search without k-fold cross validation may result in selection of model parameters that work well for a specific train-test split but not for other datasets. Hence k-fold cross validation would provide us with a model with a much better indication of its performance. </li>
+<li>Without k-fold cross validation, there is a greater chance that the grid search may select a model with hyperparameters that overfit on a specific train-validation split. But with k-fold CV, it is less important how the data is divided. The training and validation set used is maximised, which is especially useful when the dataset sizes are limited. This increases the chances of the selection of a model with a much better generalized performance.</li>
 </ul>
 </li>
 </ul>
